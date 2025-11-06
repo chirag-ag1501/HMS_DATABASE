@@ -1,0 +1,220 @@
+//Assignment 3 All questions
+
+package assignments;
+import java.util.Scanner;
+
+public class GradeCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter your score (0-100): ");
+        int score = sc.nextInt();
+
+        if (score >= 90 && score <= 100)
+            System.out.println("Your grade is A.");
+        else if (score >= 80)
+            System.out.println("Your grade is B.");
+        else if (score >= 70)
+            System.out.println("Your grade is C.");
+        else if (score >= 60)
+            System.out.println("Your grade is D.");
+        else if (score >= 0)
+            System.out.println("Your grade is F.");
+        else
+            System.out.println("Invalid score!");
+        sc.close();
+    }
+}
+
+
+
+
+package assignments;
+import java.util.Scanner;
+
+public class LargestNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+        System.out.print("Enter third number: ");
+        int c = sc.nextInt();
+
+        int largest = (a > b && a > c) ? a : (b > c ? b : c);
+        System.out.println("The largest number is " + largest + ".");
+        sc.close();
+    }
+}
+
+
+
+
+package assignments;
+import java.util.Scanner;
+
+public class TriangleType {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first side: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second side: ");
+        int b = sc.nextInt();
+        System.out.print("Enter third side: ");
+        int c = sc.nextInt();
+
+        if (a == b && b == c)
+            System.out.println("The triangle is equilateral.");
+        else if (a == b || b == c || a == c)
+            System.out.println("The triangle is isosceles.");
+        else
+            System.out.println("The triangle is scalene.");
+        sc.close();
+    }
+}
+
+
+
+
+
+package assignments;
+import java.util.Scanner;
+
+public class PasswordStrength {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a password: ");
+        String password = sc.nextLine();
+
+        boolean hasUpper = false, hasLower = false, hasDigit = false, hasSpecial = false;
+
+        for (char ch : password.toCharArray()) {
+            if (Character.isUpperCase(ch)) hasUpper = true;
+            else if (Character.isLowerCase(ch)) hasLower = true;
+            else if (Character.isDigit(ch)) hasDigit = true;
+            else hasSpecial = true;
+        }
+
+        if (password.length() >= 8 && hasUpper && hasLower && hasDigit && hasSpecial)
+            System.out.println("Password strength: Strong.");
+        else if (password.length() >= 6 && hasUpper && hasLower && hasDigit)
+            System.out.println("Password strength: Medium.");
+        else
+            System.out.println("Password strength: Weak.");
+
+        sc.close();
+    }
+}
+
+
+
+
+
+package assignments;
+import java.util.Scanner;
+
+public class ReverseNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int reversed = 0;
+
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+
+        System.out.println("The reversed number is " + reversed + ".");
+        sc.close();
+    }
+}
+
+
+
+
+
+
+package assignments;
+import java.util.Scanner;
+
+public class PrimeCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        boolean isPrime = true;
+
+        if (num <= 1) {
+            isPrime = false;
+        } else {
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        if (isPrime)
+            System.out.println(num + " is a prime number.");
+        else
+            System.out.println(num + " is not a prime number.");
+        sc.close();
+    }
+}
+
+
+
+
+
+
+package assignments;
+import java.util.Scanner;
+
+public class SumOfDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int sum = 0;
+
+        while (num != 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+
+        System.out.println("The sum of the digits is " + sum + ".");
+        sc.close();
+    }
+}
+
+
+
+
+
+package assignments;
+
+public class StarPattern {
+    public static void main(String[] args) {
+        int n = 5;
+
+        // Increasing pattern
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i * 2 - 1; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+        // Decreasing pattern
+        for (int i = n - 1; i >= 1; i--) {
+            for (int j = 1; j <= i * 2 - 1; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
